@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "39209495919",
+    "project_id": "projectmdp-60c85",
+    "storage_bucket": "projectmdp-60c85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39209495919:android:1b582eefc14bc063c14c9a",
+        "android_client_info": {
+          "package_name": "id.ac.istts.projectmdp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39209495919-r99jc76cfojaqe8trf2pkscrqb6ns957.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHehurztITaJ5NxT6d0amLHxW3l-zoeJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39209495919-r99jc76cfojaqe8trf2pkscrqb6ns957.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
