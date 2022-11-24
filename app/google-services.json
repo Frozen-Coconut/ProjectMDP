@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "979732361849",
-    "project_id": "projectmdp-20523",
-    "storage_bucket": "projectmdp-20523.appspot.com"
+    "project_number": "124021323574",
+    "project_id": "projectmdp2-67ac2",
+    "storage_bucket": "projectmdp2-67ac2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:979732361849:android:53e3911a3bd1eb767b5aa8",
+        "mobilesdk_app_id": "1:124021323574:android:3bc40255fb67f601ba6597",
         "android_client_info": {
           "package_name": "id.ac.istts.projectmdp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "979732361849-0m4c0egs6madsjmuh0i5lqgsm90o1dsk.apps.googleusercontent.com",
+          "client_id": "124021323574-etl11i4t0i2o4tljpvrfrdm5s3v2oa4l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.ac.istts.projectmdp",
+            "certificate_hash": "66d9f02976567f9f6a5927450698f0d67cc4d813"
+          }
+        },
+        {
+          "client_id": "124021323574-octm3cis8p0i1etqerq5a5uej7ngtt2o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAgs4TU-VsUc8XJIzztqefzZ5W_wNchSC4"
+          "current_key": "AIzaSyC5kGITdgpj2IVhEvTb3q2NizpXLzH_29A"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "979732361849-0m4c0egs6madsjmuh0i5lqgsm90o1dsk.apps.googleusercontent.com",
+              "client_id": "124021323574-octm3cis8p0i1etqerq5a5uej7ngtt2o.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

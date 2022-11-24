@@ -26,12 +26,12 @@
             android:textSize="34sp" />
 
         <EditText
-            android:id="@+id/main_txtUsername"
+            android:id="@+id/main_txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:hint="Enter your username"
+            android:hint="Enter Email Address"
             android:inputType="textPersonName"
             android:minHeight="48dp" />
 
