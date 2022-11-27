@@ -42,8 +42,8 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        binding.registerBtnToLogin.setOnClickListener {
-            finish()
-        }
+//        binding.registerBtnToLogin.setOnClickListener {
+//            finish()
+//        }
     }
 }

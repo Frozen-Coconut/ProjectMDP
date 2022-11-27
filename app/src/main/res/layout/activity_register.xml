@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#32E97777"
     tools:context=".RegisterActivity">
 
     <LinearLayout
@@ -15,75 +16,111 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="312dp"
+            android:layout_height="166dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/bannerawal" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="30dp"
-            android:text="Register"
+            android:fontFamily="sans-serif-light"
+            android:text="SignUp"
             android:textAlignment="center"
-            android:textSize="34sp" />
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/register_txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-20dp"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_email_icon"
             android:ems="10"
-            android:hint="Email"
+            android:hint=" Email"
             android:inputType="textWebEmailAddress"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
         <EditText
             android:id="@+id/register_txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_lock_icon"
             android:ems="10"
-            android:hint="Password"
+            android:hint=" Password"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp" />
 
         <EditText
             android:id="@+id/register_txtPasswordConfirmation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_lock_icon"
             android:ems="10"
-            android:hint="Konfirmasi Password"
+            android:hint=" Konfirmasi Password"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp" />
 
         <EditText
             android:id="@+id/register_txtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_person_icon"
             android:ems="10"
-            android:hint="Nama"
+            android:hint=" Nama"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp" />
 
         <EditText
             android:id="@+id/register_txtAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_address_icon"
             android:ems="10"
-            android:hint="Alamat"
+            android:hint=" Alamat"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp" />
 
         <EditText
             android:id="@+id/register_txtDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_date_icon"
             android:ems="10"
-            android:hint="Tanggal Lahir"
+            android:hint=" Tanggal Lahir"
             android:inputType="datetime"
             android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp"
             android:visibility="visible" />
 
         <EditText
@@ -124,15 +161,14 @@
         <Button
             android:id="@+id/register_btnRegister"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginTop="-10dp"
             android:layout_marginBottom="5dp"
-            android:text="Register" />
+            android:backgroundTint="#FF6372"
+            android:text="Sign Up"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="50dp" />
 
-        <Button
-            android:id="@+id/register_btnToLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="Halaman login" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
