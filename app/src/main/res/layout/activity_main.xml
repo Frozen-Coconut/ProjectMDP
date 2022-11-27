@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#32E97777"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -17,19 +18,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="340dp"
+            android:layout_height="224dp"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/bannerawal" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="30dp"
             android:text="Login"
             android:textAlignment="center"
-            android:textSize="34sp" />
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/main_txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_email_icon"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp"
             android:ems="10"
             android:hint="Email"
             android:inputType="textWebEmailAddress"
@@ -40,6 +55,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_lock_icon"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
@@ -48,15 +67,23 @@
         <Button
             android:id="@+id/main_btnLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginBottom="5dp"
-            android:text="Login" />
+            android:backgroundTint="#FF6372"
+            android:text="Login"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="50dp" />
 
         <Button
             android:id="@+id/main_btnToRegister"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginBottom="5dp"
-            android:text="Halaman register" />
+            android:backgroundTint="#FF6372"
+            android:text="Back"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="50dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
