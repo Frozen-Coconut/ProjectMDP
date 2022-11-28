@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import id.ac.istts.projectmdp.databinding.ActivityMainBinding
 import id.ac.istts.projectmdp.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
@@ -42,8 +41,8 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-//        binding.registerBtnToLogin.setOnClickListener {
-//            finish()
-//        }
+        binding.registerBtnBack.setOnClickListener {
+            finish()
+        }
     }
 }

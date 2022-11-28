@@ -8,7 +8,7 @@
     tools:context=".IntroActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/intro_imgTitle"
         android:layout_width="387dp"
         android:layout_height="270dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/bannerawal" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/intro_txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
@@ -29,10 +29,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/intro_imgTitle" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/intro_txtSubtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
@@ -45,10 +45,10 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/intro_txtTitle" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/intro_btnLogin"
         android:layout_width="0dp"
         android:layout_height="71dp"
         android:layout_margin="32dp"
@@ -62,10 +62,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/intro_txtSubtitle" />
 
     <Button
-        android:id="@+id/btn_signup"
+        android:id="@+id/intro_btnSignup"
         android:layout_width="0dp"
         android:layout_height="71dp"
         android:layout_marginStart="32dp"
@@ -79,6 +79,6 @@
         app:cornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/intro_btnLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

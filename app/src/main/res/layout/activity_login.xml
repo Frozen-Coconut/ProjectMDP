@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#32E97777"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/main_txtEmail"
+            android:id="@+id/login_txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -51,7 +51,7 @@
             android:minHeight="48dp" />
 
         <EditText
-            android:id="@+id/main_txtPassword"
+            android:id="@+id/login_txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -65,7 +65,7 @@
             android:minHeight="48dp" />
 
         <Button
-            android:id="@+id/main_btnLogin"
+            android:id="@+id/login_btnLogin"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginBottom="5dp"
@@ -76,7 +76,7 @@
             app:cornerRadius="50dp" />
 
         <Button
-            android:id="@+id/main_btnToRegister"
+            android:id="@+id/login_btnBack"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginBottom="5dp"

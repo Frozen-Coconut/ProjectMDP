@@ -6,23 +6,21 @@ import android.os.Bundle
 import android.widget.Button
 
 class IntroActivity : AppCompatActivity() {
-    private lateinit var btn_signup : Button
-    private lateinit var btn_login : Button
+    private lateinit var btnLogin : Button
+    private lateinit var btnSignup : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
-        btn_signup = findViewById(R.id.btn_signup)
-        btn_login = findViewById(R.id.btn_login)
+        btnLogin = findViewById(R.id.intro_btnLogin)
+        btnSignup = findViewById(R.id.intro_btnSignup)
 
-        btn_signup.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-            
+        btnLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
-        btn_login.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+
+        btnSignup.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 }
