@@ -19,7 +19,9 @@ class LoginActivity : AppCompatActivity() {
             if (binding.loginTxtEmail.text.isEmpty() || binding.loginTxtPassword.text.isEmpty()) {
                 Toast.makeText(this, "Semua input harus diisi!", Toast.LENGTH_SHORT).show()
             } else {
-
+                if (binding.loginTxtEmail.text.toString() == "admin" && binding.loginTxtPassword.text.toString() == "admin") {
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
             }
         }
 
