@@ -52,10 +52,12 @@ class RegisterActivity : AppCompatActivity() {
                         override fun onResponse(response: String) {
                             Toast.makeText(this@RegisterActivity, "Berhasil mendaftar!", Toast.LENGTH_SHORT).show()
                             Log.d("Laravel", response)
+                            finish()
                         }
                     },
                     object: Response.ErrorListener {
                         override fun onErrorResponse(error: VolleyError?) {
+                            Toast.makeText(this@RegisterActivity, "Gagal mendaftar!", Toast.LENGTH_SHORT).show()
                             Log.e("Laravel", error.toString())
                         }
                     }
