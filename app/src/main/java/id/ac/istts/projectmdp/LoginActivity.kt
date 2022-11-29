@@ -6,11 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.JsonRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import id.ac.istts.projectmdp.databinding.ActivityLoginBinding
 
@@ -30,10 +26,9 @@ class LoginActivity : AppCompatActivity() {
                 if (binding.loginTxtEmail.text.toString() == "admin" && binding.loginTxtPassword.text.toString() == "admin") {
                     startActivity(Intent(this, MainActivity::class.java))
                 } else {
-                    var email = ""
                     var password = ""
                     val requestQueue = Volley.newRequestQueue(this)
-                    val url = Connection.URL + "users/get"
+                    val url = Connection.URL + "users/get?email=${binding.loginTxtEmail.text.toString()}"
                     val request = JsonObjectRequest(
                         Request.Method.GET,
                         url,
@@ -43,12 +38,14 @@ class LoginActivity : AppCompatActivity() {
                                 password = response.getString("password")
                                 if (binding.loginTxtPassword.text.toString() == password) {
                                     Toast.makeText(this@LoginActivity, "Berhasil login!", Toast.LENGTH_SHORT).show()
+                                    // TODO: JANGAN LUPA DIARAHKAN KE MANA
                                 } else {
                                     Toast.makeText(this@LoginActivity, "Password salah!", Toast.LENGTH_SHORT).show()
                                 }
                                 Log.d("Laravel", response.toString())
                             } catch (ex: Exception) {
-                                Toast.makeText(this, "Gagal login!", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "User tidak terdaftar!", Toast.LENGTH_SHORT).show()
+                                Log.e("Laravel", ex.message.toString())
                             }
                         },
                         { error ->
