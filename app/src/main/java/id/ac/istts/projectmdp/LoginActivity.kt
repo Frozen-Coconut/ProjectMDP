@@ -21,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 if (binding.loginTxtEmail.text.toString() == "admin" && binding.loginTxtPassword.text.toString() == "admin") {
                     startActivity(Intent(this, MainActivity::class.java))
+                } else {
+                    
                 }
             }
         }
