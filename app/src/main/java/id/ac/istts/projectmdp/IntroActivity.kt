@@ -8,6 +8,7 @@ import android.widget.Button
 class IntroActivity : AppCompatActivity() {
     private lateinit var btnLogin : Button
     private lateinit var btnSignup : Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)

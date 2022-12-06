@@ -18,10 +18,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".UserHomeActivity"
+            android:name=".UserActivity"
             android:exported="false" />
         <activity
-            android:name=".PuskesmasHomeActivity"
+            android:name=".PuskesmasActivity"
             android:exported="false" />
         <activity
             android:name=".IntroActivity"

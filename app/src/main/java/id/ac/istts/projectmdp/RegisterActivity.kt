@@ -58,6 +58,8 @@ class RegisterActivity : AppCompatActivity() {
                         override fun onErrorResponse(error: VolleyError?) {
                             Toast.makeText(this@RegisterActivity, "Gagal mendaftar!", Toast.LENGTH_SHORT).show()
                             Log.e("Laravel", error.toString())
+                            binding.registerTxtPassword.text.clear()
+                            binding.registerTxtPasswordConfirmation.text.clear()
                         }
                     }
                 ) {

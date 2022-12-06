@@ -24,11 +24,22 @@
         <entry key="..\:/Kuliah/Semester5/MDP/PROJECTMDP/PROJECT MDP/app/src/main/res/layout/activity_intro.xml" value="0.25" />
         <entry key="..\:/Kuliah/Semester5/MDP/PROJECTMDP/PROJECT MDP/app/src/main/res/layout/activity_main.xml" value="0.3079710144927536" />
         <entry key="..\:/Kuliah/Semester5/MDP/PROJECTMDP/PROJECT MDP/app/src/main/res/layout/activity_register.xml" value="0.33" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/drawable/button_background_red02.xml" value="0.2265" />
         <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2265" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2265" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2265" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/drawable/ic_baseline_lock_focused.xml" value="0.2265" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.2265" />
         <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/layout/activity_intro.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/layout/activity_puskesmas.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/layout/activity_register.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/layout/activity_user.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/menu/menu_puskesmas_nav.xml" value="0.2734375" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/menu/options_menu.xml" value="0.2734375" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/menu/puskesmas_nav.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/harto/Coco/ISTTS/Semester_5/Project/Project_MDP/ProjectMDP/app/src/main/res/menu/user_nav.xml" value="0.205078125" />
       </map>
     </option>
   </component>

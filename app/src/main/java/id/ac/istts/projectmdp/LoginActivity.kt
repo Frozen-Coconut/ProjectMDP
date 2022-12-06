@@ -36,10 +36,12 @@ class LoginActivity : AppCompatActivity() {
                             if (binding.loginTxtPassword.text.toString() == password) {
                                 Toast.makeText(this@LoginActivity, "Berhasil login!", Toast.LENGTH_SHORT).show()
                                 if (response.getString("date_of_birth") == "null") {
-                                    startActivity(Intent(this, PuskesmasHomeActivity::class.java))
+                                    startActivity(Intent(this, PuskesmasActivity::class.java))
                                 } else {
-                                    startActivity(Intent(this, UserHomeActivity::class.java))
+                                    startActivity(Intent(this, UserActivity::class.java))
                                 }
+                                binding.loginTxtEmail.text.clear()
+                                binding.loginTxtPassword.text.clear()
                             } else {
                                 Toast.makeText(this@LoginActivity, "Password salah!", Toast.LENGTH_SHORT).show()
                             }
