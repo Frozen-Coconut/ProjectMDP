@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
@@ -14,7 +13,7 @@ import id.ac.istts.projectmdp.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
-    private var type = 0;
+    private var type = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +61,7 @@ class RegisterActivity : AppCompatActivity() {
                         }
                     }
                 ) {
-                    override fun getParams(): MutableMap<String, String>? {
+                    override fun getParams(): MutableMap<String, String> {
                         val params: MutableMap<String, String> = HashMap()
                         params["email"] = binding.registerTxtEmail.text.toString()
                         params["password"] = binding.registerTxtPassword.text.toString()
