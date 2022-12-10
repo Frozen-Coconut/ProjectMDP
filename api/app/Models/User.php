@@ -19,4 +19,8 @@ class User extends Model
         'phone',
         'date_of_birth'
     ];
+
+    public function blood_requests() {
+        return $this->hasMany(BloodRequest::class, 'puskesmas_id', 'id');
+    }
 }

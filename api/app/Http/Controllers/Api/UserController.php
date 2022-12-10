@@ -31,4 +31,10 @@ class UserController extends Controller
         $user = User::where('email', $request->email)->first();
         return response()->json($user);
     }
+
+    public function GetAll(Request $request)
+    {
+        $users = User::all();
+        return response()->json($users);
+    }
 }
