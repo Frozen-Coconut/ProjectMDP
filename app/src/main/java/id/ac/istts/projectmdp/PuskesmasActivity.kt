@@ -57,7 +57,7 @@ class PuskesmasActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun swapFragment(fragment: Fragment) {
+    private fun swapFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.puskesmas_main, fragment).setReorderingAllowed(true).commit()
     }
 }

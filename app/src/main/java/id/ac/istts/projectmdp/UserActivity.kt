@@ -27,7 +27,10 @@ class UserActivity : AppCompatActivity() {
         userProfileFragment = UserProfileFragment()
         userNotificationFragment = UserNotificationFragment()
 
-        swapFragment(userHomeFragment)
+//        swapFragment(userHomeFragment)
+        // TODO: JANGAN LUPA DIHAPUS, HANYA UNTUK COBA MAPS
+        val mapsFragment = MapsFragment()
+        swapFragment(mapsFragment)
 
         nav.setOnItemSelectedListener {
             when (it.itemId) {
