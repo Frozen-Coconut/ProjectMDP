@@ -7,10 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
-import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import id.ac.istts.projectmdp.databinding.FragmentPuskesmasHomeBinding
@@ -31,11 +32,12 @@ class PuskesmasHomeFragment : Fragment() {
         val fragmentView = binding.root
         requireActivity().setContentView(fragmentView)
 
+        val requestQueue = Volley.newRequestQueue(requireContext())
+
         binding.puskesmasHomeBtnSubmit.setOnClickListener {
             if (binding.puskesmasHomeTxtScheduledDate.text.isEmpty() || binding.puskesmasHomeTxtBloodType.text.isEmpty()) {
                 Toast.makeText(requireContext(), "Semua input harus diisi!", Toast.LENGTH_SHORT).show()
             } else {
-                val requestQueue = Volley.newRequestQueue(requireContext())
                 val url = Connection.URL + "bloodrequests/insert"
                 val request = object: StringRequest(
                     Method.POST,
@@ -66,5 +68,23 @@ class PuskesmasHomeFragment : Fragment() {
                 requestQueue.add(request)
             }
         }
+
+        binding.puskesmasHomeRvUser.layoutManager = LinearLayoutManager(requireContext())
+
+        val url = Connection.URL + "users?type=user"
+        val request = JsonArrayRequest(
+            Request.Method.GET,
+            url,
+            null,
+            { response ->
+                binding.puskesmasHomeRvUser.adapter = ListUserAdapter(response)
+                Log.d("Laravel", response.toString())
+            },
+            { error ->
+                Toast.makeText(requireContext(), "Gagal mendapatkan daftar user!", Toast.LENGTH_SHORT).show()
+                Log.e("Laravel", error.toString())
+            }
+        )
+        requestQueue.add(request)
     }
 }

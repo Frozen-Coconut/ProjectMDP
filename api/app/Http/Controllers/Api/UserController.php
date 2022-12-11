@@ -34,6 +34,15 @@ class UserController extends Controller
 
     public function GetAll(Request $request)
     {
+        if ($request->has('type')) {
+            if ($request->type == 'user') {
+                $users = User::whereNotNull('date_of_birth')->get();
+                return response()->json($users);
+            } else if ($request->type == 'puskesmas') {
+                $users = User::whereNull('date_of_birth')->get();
+                return response()->json($users);
+            }
+        }
         $users = User::all();
         return response()->json($users);
     }
