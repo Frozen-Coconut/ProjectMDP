@@ -27,6 +27,8 @@ class UserActivity : AppCompatActivity() {
         userProfileFragment = UserProfileFragment()
         userNotificationFragment = UserNotificationFragment()
 
+        swapFragment(userHomeFragment)
+
         nav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.user_menuHome -> {

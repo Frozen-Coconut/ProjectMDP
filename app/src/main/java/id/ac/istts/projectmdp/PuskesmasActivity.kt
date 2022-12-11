@@ -25,6 +25,8 @@ class PuskesmasActivity : AppCompatActivity() {
         puskesmasHistoryFragment = PuskesmasHistoryFragment()
         puskesmasProfileFragment = PuskesmasProfileFragment()
 
+        swapFragment(puskesmasHomeFragment)
+
         nav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.puskesmas_menuHome -> {
