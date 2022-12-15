@@ -1,4 +1,4 @@
-package id.ac.istts.projectmdp
+package id.ac.istts.projectmdp.hospital
 
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +14,8 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import id.ac.istts.projectmdp.Connection
+import id.ac.istts.projectmdp.R
 import id.ac.istts.projectmdp.databinding.FragmentPuskesmasHomeBinding
 
 class PuskesmasHomeFragment : Fragment() {

@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+<!--    transparent color-->
+    <color name="trans_green">#7525d366</color>
 </resources>

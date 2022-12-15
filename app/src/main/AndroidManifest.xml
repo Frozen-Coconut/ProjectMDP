@@ -34,10 +34,10 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
-            android:name=".UserActivity"
+            android:name=".user.UserActivity"
             android:exported="false" />
         <activity
-            android:name=".PuskesmasActivity"
+            android:name=".hospital.PuskesmasActivity"
             android:exported="false" />
         <activity
             android:name=".IntroActivity"

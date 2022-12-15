@@ -1,4 +1,4 @@
-package id.ac.istts.projectmdp
+package id.ac.istts.projectmdp.user
 
 import androidx.fragment.app.Fragment
 
@@ -7,10 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.CameraPosition
 
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import id.ac.istts.projectmdp.R
 
 class MapsFragment : Fragment() {
 

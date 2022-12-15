@@ -1,10 +1,11 @@
-package id.ac.istts.projectmdp
+package id.ac.istts.projectmdp.hospital
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import id.ac.istts.projectmdp.R
 import org.json.JSONArray
 import org.json.JSONObject
 

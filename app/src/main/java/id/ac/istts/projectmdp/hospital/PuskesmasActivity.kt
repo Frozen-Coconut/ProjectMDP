@@ -1,4 +1,4 @@
-package id.ac.istts.projectmdp
+package id.ac.istts.projectmdp.hospital
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import id.ac.istts.projectmdp.R
 
 class PuskesmasActivity : AppCompatActivity() {
     lateinit var main: FrameLayout
