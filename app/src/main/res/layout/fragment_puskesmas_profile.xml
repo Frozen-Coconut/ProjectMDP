@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tvNamaProfilePuskesmas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nama"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvAlamatProfilePuskesmas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Alamat"
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvEmailProfilePuskesmas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="E-Mail"
@@ -109,10 +109,10 @@
         tools:layout_editor_absoluteY="381dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvNoTelpProfilePuskesmas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="E-Mail"
+            android:text="Nomor Telepon"
             android:textSize="16sp" />
 
         <EditText
