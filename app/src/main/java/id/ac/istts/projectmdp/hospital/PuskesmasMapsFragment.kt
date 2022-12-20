@@ -20,6 +20,9 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import id.ac.istts.projectmdp.Connection
 import id.ac.istts.projectmdp.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PuskesmasMapsFragment : Fragment() {
 
@@ -33,20 +36,27 @@ class PuskesmasMapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
+        val ioScope = CoroutineScope(Dispatchers.IO)
+
         val geocoder = Geocoder(requireContext())
 
         val istts = LatLng(-7.291290184677537, 112.75882726352205)
         googleMap.addMarker(MarkerOptions().position(istts).title("Institut Sains dan Teknologi Terpadu Surabaya"))
 
         val requestQueue = Volley.newRequestQueue(requireContext())
-        val url = Connection.URL + "users?type=user"
+        val url = Connection.URL + "users/get?email=" + Connection.email
         val request = JsonObjectRequest(
             Request.Method.GET,
             url,
             null,
             { response ->
-//                val home = geocoder.getFromLocationName(response)
-//                googleMap.moveCamera(CameraUpdateFactory.newLatLng(home))
+                ioScope.launch {
+                    val home = geocoder.getFromLocationName(response.getString("address"), 10)
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(home[0].latitude, home[0].longitude)))
+                    requireActivity().runOnUiThread {
+                        Toast.makeText(requireContext(), response.getString("address"), Toast.LENGTH_SHORT).show()
+                    }
+                }
                 Log.d("Laravel", response.toString())
             },
             { error ->

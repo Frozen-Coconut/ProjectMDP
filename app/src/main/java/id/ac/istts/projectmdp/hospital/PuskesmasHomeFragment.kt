@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
@@ -16,11 +19,13 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import id.ac.istts.projectmdp.Connection
 import id.ac.istts.projectmdp.R
-import id.ac.istts.projectmdp.databinding.FragmentPuskesmasHomeBinding
 
 class PuskesmasHomeFragment : Fragment() {
-    private lateinit var binding: FragmentPuskesmasHomeBinding
-
+    lateinit var btnSubmit: Button
+    lateinit var txtScheduledDate: EditText
+    lateinit var txtBloodType: EditText
+    lateinit var rvUser: RecyclerView
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,14 +35,16 @@ class PuskesmasHomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentPuskesmasHomeBinding.inflate(layoutInflater)
-        val fragmentView = binding.root
-        requireActivity().setContentView(fragmentView)
-
+        
+        btnSubmit = view.findViewById(R.id.puskesmas_home_btnSubmit)
+        txtScheduledDate = view.findViewById(R.id.puskesmas_home_txtScheduledDate)
+        txtBloodType = view.findViewById(R.id.puskesmas_home_txtBloodType)
+        rvUser = view.findViewById(R.id.puskesmas_home_rvUser)
+        
         val requestQueue = Volley.newRequestQueue(requireContext())
 
-        binding.puskesmasHomeBtnSubmit.setOnClickListener {
-            if (binding.puskesmasHomeTxtScheduledDate.text.isEmpty() || binding.puskesmasHomeTxtBloodType.text.isEmpty()) {
+        btnSubmit.setOnClickListener {
+            if (txtScheduledDate.text.isEmpty() || txtBloodType.text.isEmpty()) {
                 Toast.makeText(requireContext(), "Semua input harus diisi!", Toast.LENGTH_SHORT).show()
             } else {
                 val url = Connection.URL + "bloodrequests/insert"
@@ -48,8 +55,8 @@ class PuskesmasHomeFragment : Fragment() {
                         override fun onResponse(response: String) {
                             Toast.makeText(requireContext(), "Berhasil membuat request darah!", Toast.LENGTH_SHORT).show()
                             Log.d("Laravel", response)
-                            binding.puskesmasHomeTxtScheduledDate.text.clear()
-                            binding.puskesmasHomeTxtBloodType.text.clear()
+                            txtScheduledDate.text.clear()
+                            txtBloodType.text.clear()
                         }
                     },
                     object: Response.ErrorListener {
@@ -61,8 +68,8 @@ class PuskesmasHomeFragment : Fragment() {
                 ) {
                     override fun getParams(): MutableMap<String, String> {
                         val params: MutableMap<String, String> = HashMap()
-                        params["scheduled_date"] = binding.puskesmasHomeTxtScheduledDate.text.toString()
-                        params["blood_type"] = binding.puskesmasHomeTxtBloodType.text.toString()
+                        params["scheduled_date"] = txtScheduledDate.text.toString()
+                        params["blood_type"] = txtBloodType.text.toString()
                         params["puskesmas_id"] = Connection.current.toString()
                         return params
                     }
@@ -71,7 +78,7 @@ class PuskesmasHomeFragment : Fragment() {
             }
         }
 
-        binding.puskesmasHomeRvUser.layoutManager = LinearLayoutManager(requireContext())
+        rvUser.layoutManager = LinearLayoutManager(requireContext())
 
         val url = Connection.URL + "users?type=user"
         val request = JsonArrayRequest(
@@ -79,7 +86,7 @@ class PuskesmasHomeFragment : Fragment() {
             url,
             null,
             { response ->
-                binding.puskesmasHomeRvUser.adapter = ListUserAdapter(response)
+                rvUser.adapter = ListUserAdapter(response)
                 Log.d("Laravel", response.toString())
             },
             { error ->

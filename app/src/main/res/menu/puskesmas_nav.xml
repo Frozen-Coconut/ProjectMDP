@@ -13,4 +13,8 @@
         android:id="@+id/puskesmas_menuProfile"
         android:icon="@drawable/ic_baseline_person_focused"
         android:title="Profile" />
+    <item
+        android:id="@+id/puskesmas_menuMap"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:title="Map" />
 </menu>

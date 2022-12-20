@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
                             password = response.getString("password")
                             if (binding.loginTxtPassword.text.toString() == password) {
                                 Connection.current = response.getInt("id")
+                                Connection.email = response.getString("email")
                                 Toast.makeText(this@LoginActivity, "Berhasil login!", Toast.LENGTH_SHORT).show()
                                 if (response.getString("date_of_birth") == "null") {
                                     startActivity(Intent(this, PuskesmasActivity::class.java))

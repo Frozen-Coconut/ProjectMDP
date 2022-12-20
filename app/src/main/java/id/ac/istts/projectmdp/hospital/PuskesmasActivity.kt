@@ -15,6 +15,7 @@ class PuskesmasActivity : AppCompatActivity() {
     lateinit var puskesmasHomeFragment: PuskesmasHomeFragment
     lateinit var puskesmasHistoryFragment: PuskesmasHistoryFragment
     lateinit var puskesmasProfileFragment: PuskesmasProfileFragment
+    lateinit var puskesmasMapsFragment: PuskesmasMapsFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,7 @@ class PuskesmasActivity : AppCompatActivity() {
         puskesmasHomeFragment = PuskesmasHomeFragment()
         puskesmasHistoryFragment = PuskesmasHistoryFragment()
         puskesmasProfileFragment = PuskesmasProfileFragment()
+        puskesmasMapsFragment = PuskesmasMapsFragment()
 
         swapFragment(puskesmasHomeFragment)
 
@@ -38,6 +40,9 @@ class PuskesmasActivity : AppCompatActivity() {
                 }
                 R.id.puskesmas_menuProfile -> {
                     swapFragment(puskesmasProfileFragment)
+                }
+                R.id.puskesmas_menuMap -> {
+                    swapFragment(puskesmasMapsFragment)
                 }
             }
             return@setOnItemSelectedListener true
