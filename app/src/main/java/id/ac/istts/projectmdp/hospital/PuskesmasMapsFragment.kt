@@ -22,7 +22,8 @@ import id.ac.istts.projectmdp.Connection
 import id.ac.istts.projectmdp.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import org.json.JSONObject
+import java.net.URLEncoder
 
 class PuskesmasMapsFragment : Fragment() {
 
@@ -50,14 +51,22 @@ class PuskesmasMapsFragment : Fragment() {
             url,
             null,
             { response ->
-                ioScope.launch {
-                    val home = geocoder.getFromLocationName(response.getString("address"), 10)
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(home[0].latitude, home[0].longitude)))
-                    requireActivity().runOnUiThread {
-                        Toast.makeText(requireContext(), response.getString("address"), Toast.LENGTH_SHORT).show()
-                    }
-                }
                 Log.d("Laravel", response.toString())
+                val anotherUrl = "https://geocode.search.hereapi.com/v1/geocode?q=" + URLEncoder.encode(response.getString("address"), "UTF-8") + "&apiKey=whXA9dgTB1kCYoeqesmMxMGhFTZrmz3FNK70aHbRF88"
+                val anotherRequest = JsonObjectRequest(
+                    Request.Method.GET,
+                    anotherUrl,
+                    null,
+                    { anotherResponse ->
+                        val home = (anotherResponse.getJSONArray("items")[0] as JSONObject).getJSONObject("position")
+                        googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(home.getDouble("lat"), home.getDouble("lng"))))
+                    },
+                    { error ->
+                        Toast.makeText(requireContext(), "Gagal terhubung ke database!", Toast.LENGTH_SHORT).show()
+                        Log.e("Laravel", error.toString())
+                    }
+                )
+                requestQueue.add(anotherRequest)
             },
             { error ->
                 Toast.makeText(requireContext(), "Gagal terhubung ke database!", Toast.LENGTH_SHORT).show()
