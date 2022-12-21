@@ -17,7 +17,9 @@ class User extends Model
         'name',
         'address',
         'phone',
-        'date_of_birth'
+        'date_of_birth',
+        'latitude',
+        'longitude'
     ];
 
     public function blood_requests() {
