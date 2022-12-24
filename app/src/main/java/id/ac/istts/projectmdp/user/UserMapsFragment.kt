@@ -20,9 +20,14 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import id.ac.istts.projectmdp.Connection
+import id.ac.istts.projectmdp.Position
 import id.ac.istts.projectmdp.R
 import org.json.JSONObject
 import java.net.URLEncoder
+import java.util.*
+import kotlin.Comparator
+import kotlin.collections.HashMap
+import kotlin.math.abs
 
 class UserMapsFragment : Fragment() {
 
@@ -38,8 +43,9 @@ class UserMapsFragment : Fragment() {
          */
 
         val istts = LatLng(-7.291290184677537, 112.75882726352205)
-        googleMap.addMarker(MarkerOptions().position(istts).title("Institut Sains dan Teknologi Terpadu Surabaya"))
+//        googleMap.addMarker(MarkerOptions().position(istts).title("Institut Sains dan Teknologi Terpadu Surabaya"))
 
+        var currentPosition = istts
         val requestQueue = Volley.newRequestQueue(requireContext())
         val url = Connection.URL + "users/get?email=" + Connection.email
         val request = JsonObjectRequest(
@@ -58,6 +64,7 @@ class UserMapsFragment : Fragment() {
                             Log.d("Laravel", anotherResponse.toString())
                             val home = (anotherResponse.getJSONArray("items")[0] as JSONObject).getJSONObject("position")
                             val position = LatLng(home.getDouble("lat"), home.getDouble("lng"))
+                            currentPosition = position
                             googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
                             googleMap.addMarker(MarkerOptions().position(position).title(response.getString("name")))
                             val updateUrl = Connection.URL + "users/update"
@@ -94,6 +101,7 @@ class UserMapsFragment : Fragment() {
                     requestQueue.add(anotherRequest)
                 } else {
                     val position = LatLng(response.getDouble("latitude"), response.getDouble("longitude"))
+                    currentPosition = position
                     googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
                     googleMap.addMarker(MarkerOptions().position(position).title(response.getString("name")))
                 }
@@ -110,11 +118,43 @@ class UserMapsFragment : Fragment() {
             Connection.URL + "users?type=puskesmas",
             null,
             { response->
-                for (i in 0 until response.length()) {
-                    val user = response[i] as JSONObject
-                    if (!user.isNull("latitude") && !user.isNull("longitude")) {
-                        val position = LatLng(user.getDouble("latitude"), user.getDouble("longitude"))
-                        googleMap.addMarker(MarkerOptions().position(position).title(user.getString("name")))
+                if (currentPosition == istts) {
+                    Toast.makeText(requireContext(), "Gagal terhubung ke database!", Toast.LENGTH_SHORT).show()
+                } else {
+                    val comparator = Comparator { position1: Position, position2: Position ->
+                        if (
+                            abs(position1.position.latitude - currentPosition.latitude) + abs(position1.position.longitude - currentPosition.longitude)
+                            >
+                            abs(position2.position.latitude - currentPosition.latitude) + abs(position2.position.longitude - currentPosition.longitude)
+                        ) {
+                            return@Comparator 1
+                        }
+                        else if (
+                            abs(position1.position.latitude - currentPosition.latitude) + abs(position1.position.longitude - currentPosition.longitude)
+                            ==
+                            abs(position2.position.latitude - currentPosition.latitude) + abs(position2.position.longitude - currentPosition.longitude)
+                        ) {
+                            return@Comparator 0
+                        }
+                        return@Comparator -1
+                    }
+                    val queue = PriorityQueue(comparator)
+                    for (i in 0 until response.length()) {
+                        val user = response[i] as JSONObject
+                        if (!user.isNull("latitude") && !user.isNull("longitude")) {
+                            val position = LatLng(user.getDouble("latitude"), user.getDouble("longitude"))
+                            queue.add(Position(position, user.getString("name")))
+                        }
+                    }
+                    for (i in 0 until 5) {
+                        if (queue.size > 0) {
+                            val position = queue.poll()
+                            if (position != null) {
+                                googleMap.addMarker(MarkerOptions().position(position.position).title(position.name))
+                            }
+                        } else {
+                            break
+                        }
                     }
                 }
             },
