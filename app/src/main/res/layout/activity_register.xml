@@ -117,7 +117,7 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/custom_date_icon"
             android:ems="10"
-            android:hint=" Tanggal Lahir"
+            android:hint=" Tanggal Lahir (YYYY-MM-DD)"
             android:inputType="datetime"
             android:minHeight="48dp"
             android:paddingStart="12dp"

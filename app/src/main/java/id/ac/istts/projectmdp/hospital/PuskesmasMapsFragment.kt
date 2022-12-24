@@ -1,6 +1,5 @@
 package id.ac.istts.projectmdp.hospital
 
-import android.location.Geocoder
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
@@ -23,8 +22,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import id.ac.istts.projectmdp.Connection
 import id.ac.istts.projectmdp.R
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import org.json.JSONObject
 import java.net.URLEncoder
 
@@ -40,9 +37,6 @@ class PuskesmasMapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        val ioScope = CoroutineScope(Dispatchers.IO)
-
-        val geocoder = Geocoder(requireContext())
 
         val istts = LatLng(-7.291290184677537, 112.75882726352205)
         googleMap.addMarker(MarkerOptions().position(istts).title("Institut Sains dan Teknologi Terpadu Surabaya"))

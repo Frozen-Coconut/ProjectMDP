@@ -2,6 +2,8 @@ package id.ac.istts.projectmdp.user
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
@@ -127,5 +129,18 @@ class UserActivity : AppCompatActivity() {
             profileBtn.setImageResource(R.drawable.ic_baseline_person_24)
             notifBtn.setImageResource(R.drawable.ic_baseline_notifications_24_focused)
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.options_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_logout -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
