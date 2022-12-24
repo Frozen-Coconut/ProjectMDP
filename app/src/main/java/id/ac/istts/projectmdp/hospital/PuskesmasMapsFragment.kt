@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -56,6 +57,7 @@ class PuskesmasMapsFragment : Fragment() {
                         anotherUrl,
                         null,
                         { anotherResponse ->
+                            Log.d("Laravel", anotherResponse.toString())
                             val home = (anotherResponse.getJSONArray("items")[0] as JSONObject).getJSONObject("position")
                             val position = LatLng(home.getDouble("lat"), home.getDouble("lng"))
                             googleMap.moveCamera(CameraUpdateFactory.newLatLng(position))
@@ -104,6 +106,26 @@ class PuskesmasMapsFragment : Fragment() {
             }
         )
         requestQueue.add(request)
+
+        val userRequest = JsonArrayRequest(
+            Request.Method.GET,
+            Connection.URL + "users?type=user",
+            null,
+            { response->
+                for (i in 0 until response.length()) {
+                    val user = response[i] as JSONObject
+                    if (!user.isNull("latitude") && !user.isNull("longitude")) {
+                        val position = LatLng(user.getDouble("latitude"), user.getDouble("longitude"))
+                        googleMap.addMarker(MarkerOptions().position(position).title(user.getString("name")))
+                    }
+                }
+            },
+            { error ->
+                Toast.makeText(requireContext(), "Gagal terhubung ke database!", Toast.LENGTH_SHORT).show()
+                Log.e("Laravel", error.toString())
+            }
+        )
+        requestQueue.add(userRequest)
     }
 
     override fun onCreateView(
