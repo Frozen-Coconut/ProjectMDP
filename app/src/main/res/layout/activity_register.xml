@@ -129,10 +129,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_phone_icon"
             android:ems="10"
             android:hint="Nomor Telepon"
             android:inputType="phone"
             android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp"
             android:visibility="gone" />
 
         <RadioGroup
@@ -140,7 +144,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <RadioButton
                 android:id="@+id/rbUser"
