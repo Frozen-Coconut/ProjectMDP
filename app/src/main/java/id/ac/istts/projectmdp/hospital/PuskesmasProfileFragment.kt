@@ -1,14 +1,22 @@
 package id.ac.istts.projectmdp.hospital
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import id.ac.istts.projectmdp.Connection
 import id.ac.istts.projectmdp.R
 import id.ac.istts.projectmdp.databinding.FragmentPuskesmasProfileBinding
+import id.ac.istts.projectmdp.user.UserActivity
 
 class PuskesmasProfileFragment : Fragment() {
 
@@ -34,6 +42,31 @@ class PuskesmasProfileFragment : Fragment() {
         tpAlamat = view.findViewById(R.id.profile_txtAlamat)
         tpNoHp = view.findViewById(R.id.profile_txtNoHP)
         tpEmail = view.findViewById(R.id.profile_txtEmail)
+
+        val requestQueue = Volley.newRequestQueue(context)
+        val url = Connection.URL + "users/get?email=${Connection.email}"
+        val request = JsonObjectRequest(
+            Request.Method.GET,
+            url,
+            null,
+            { response ->
+                try {
+                    tpNama.setText(response.getString("name"))
+                    tpAlamat.setText(response.getString("address"))
+                    tpNoHp.setText(response.getString("phone"))
+                    tpEmail.setText(response.getString("email"))
+                    Log.d("Laravel", response.toString())
+                } catch (ex: Exception) {
+                    Toast.makeText(context, "Request Error!", Toast.LENGTH_SHORT).show()
+                    Log.e("Laravel", ex.message.toString())
+                }
+            },
+            { error ->
+                Toast.makeText(context, "Gagal login!", Toast.LENGTH_SHORT).show()
+                Log.e("Laravel", error.toString())
+            }
+        )
+        requestQueue.add(request)
 
         btnEdit = view.findViewById(R.id.btnEdit)
 
