@@ -10,8 +10,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.android.volley.AuthFailureError
 import com.android.volley.Request
+import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import id.ac.istts.projectmdp.Connection
 import id.ac.istts.projectmdp.R
@@ -73,7 +76,33 @@ class PuskesmasProfileFragment : Fragment() {
         btnEdit.setOnClickListener {
             if (edit) {
                 edit = false
-                //Save data
+                val updateUrl = Connection.URL + "users/update?email=${Connection.email}"
+                val updateRequest = object: StringRequest(
+                    Method.POST,
+                    updateUrl,
+                    { response ->
+                        try {
+                            Log.d("Laravel", response.toString())
+                        } catch (ex: Exception) {
+                            Toast.makeText(context, "Request Error!", Toast.LENGTH_SHORT).show()
+                            Log.e("Laravel", ex.message.toString())
+                        }
+                    },
+                    { error ->
+                        Toast.makeText(context, "Gagal login!", Toast.LENGTH_SHORT).show()
+                        Log.e("Laravel", error.toString())
+                    }
+                ){
+                    override fun getParams(): Map<String, String> {
+                        val params = HashMap<String, String>()
+                        params["name"] = tpNama.text.toString()
+                        params["phone"] = tpNoHp.text.toString()
+                        params["address"] = tpAlamat.text.toString()
+
+                        return params
+                    }
+                }
+                requestQueue.add(updateRequest)
 
                 setOnEdit()
             }
