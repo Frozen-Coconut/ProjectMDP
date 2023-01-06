@@ -30,6 +30,7 @@ import kotlin.collections.HashMap
 import kotlin.math.abs
 
 class UserMapsFragment : Fragment() {
+    private var clickedId = -1
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -143,14 +144,15 @@ class UserMapsFragment : Fragment() {
                         val user = response[i] as JSONObject
                         if (!user.isNull("latitude") && !user.isNull("longitude")) {
                             val position = LatLng(user.getDouble("latitude"), user.getDouble("longitude"))
-                            queue.add(Position(position, user.getString("name")))
+                            queue.add(Position(user.getInt("id"), position, user.getString("name")))
                         }
                     }
                     for (i in 0 until 5) {
                         if (queue.size > 0) {
                             val position = queue.poll()
                             if (position != null) {
-                                googleMap.addMarker(MarkerOptions().position(position.position).title(position.name))
+                                val marker = googleMap.addMarker(MarkerOptions().position(position.position).title(position.name))
+                                marker?.tag = position.id
                             }
                         } else {
                             break
@@ -164,6 +166,18 @@ class UserMapsFragment : Fragment() {
             }
         )
         requestQueue.add(puskesmasRequest)
+
+        googleMap.setOnMarkerClickListener {
+            val id = (it.tag ?: return@setOnMarkerClickListener false) as Int
+            if (clickedId != id) {
+                clickedId = id
+                return@setOnMarkerClickListener false
+            }
+            // TODO
+            Toast.makeText(requireContext(), "Id user: $id | JANGAN LUPA DIHAPUS", Toast.LENGTH_SHORT).show()
+            clickedId = -1
+            return@setOnMarkerClickListener true
+        }
     }
 
     override fun onCreateView(
