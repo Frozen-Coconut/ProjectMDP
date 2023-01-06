@@ -3,10 +3,7 @@ package id.ac.istts.projectmdp.user.Adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import id.ac.istts.projectmdp.user.Fragment.UserHistoryFragment
-import id.ac.istts.projectmdp.user.Fragment.UserHomeFragment
-import id.ac.istts.projectmdp.user.Fragment.UserNotificationFragment
-import id.ac.istts.projectmdp.user.Fragment.UserProfileFragment
+import id.ac.istts.projectmdp.user.Fragment.*
 
 internal class PagerAdapter (fm:FragmentManager?):
     FragmentPagerAdapter(fm!!){
@@ -24,11 +21,14 @@ internal class PagerAdapter (fm:FragmentManager?):
             3 -> {
                 UserNotificationFragment()
             }
+            4 -> {
+                UserProfilePuskesmasFragment()
+            }
             else-> UserHomeFragment()
         }
     }
 
     override fun getCount(): Int {
-        return 4
+        return 5
     }
 }

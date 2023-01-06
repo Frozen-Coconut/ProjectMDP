@@ -16,19 +16,31 @@ class UserController extends Controller
 
     public function Update(Request $request)
     {
-        $user = User::where('email', $request->email)->first()->update($request->all());
+        if ($request->has('id')) {
+            $user = User::where('id', $request->id)->first()->update($request->all());
+        } else {
+            $user = User::where('email', $request->email)->first()->update($request->all());
+        }
         return response()->json($user);
     }
 
     public function Delete(Request $request)
     {
-        $user = User::where('email', $request->email)->first()->delete();
+        if ($request->has('id')) {
+            $user = User::where('id', $request->id)->first()->delete();
+        } else {
+            $user = User::where('email', $request->email)->first()->delete();
+        }
         return response()->json($user);
     }
 
     public function Get(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
+	if ($request->has('id')) {
+            $user = User::where('id', $request->id)->first();
+        } else {
+            $user = User::where('email', $request->email)->first();
+        }
         return response()->json($user);
     }
 

@@ -25,7 +25,7 @@ class UserActivity : AppCompatActivity() {
 //    lateinit var userHistoryFragment: UserHistoryFragment
 //    lateinit var userProfileFragment: UserProfileFragment
 //    lateinit var userNotificationFragment: UserNotificationFragment
-    private lateinit var mViewPager: ViewPager
+    lateinit var mViewPager: ViewPager
     private lateinit var homeBtn:ImageButton
     private lateinit var historyBtn:ImageButton
     private lateinit var profileBtn:ImageButton

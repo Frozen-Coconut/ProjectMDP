@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import id.ac.istts.projectmdp.Connection
 import id.ac.istts.projectmdp.Position
 import id.ac.istts.projectmdp.R
+import id.ac.istts.projectmdp.user.UserActivity
 import org.json.JSONObject
 import java.net.URLEncoder
 import java.util.*
@@ -164,8 +165,8 @@ class UserHomeFragment : Fragment() {
                 clickedId = id
                 return@setOnMarkerClickListener false
             }
-            // TODO
-            Toast.makeText(requireContext(), "Id user: $id | JANGAN LUPA DIHAPUS", Toast.LENGTH_SHORT).show()
+            Connection.profileId = id
+            (requireActivity() as UserActivity).mViewPager.currentItem = 4
             clickedId = -1
             return@setOnMarkerClickListener true
         }

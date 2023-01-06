@@ -173,8 +173,8 @@ class UserMapsFragment : Fragment() {
                 clickedId = id
                 return@setOnMarkerClickListener false
             }
-            // TODO
-            Toast.makeText(requireContext(), "Id user: $id | JANGAN LUPA DIHAPUS", Toast.LENGTH_SHORT).show()
+            Connection.profileId = id
+            (requireActivity() as UserActivity).mViewPager.currentItem = 4
             clickedId = -1
             return@setOnMarkerClickListener true
         }
