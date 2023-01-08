@@ -21,14 +21,11 @@ internal class PagerAdapter (fm:FragmentManager?):
             3 -> {
                 UserNotificationFragment()
             }
-            4 -> {
-                UserProfilePuskesmasFragment()
-            }
             else-> UserHomeFragment()
         }
     }
 
     override fun getCount(): Int {
-        return 5
+        return 4
     }
 }

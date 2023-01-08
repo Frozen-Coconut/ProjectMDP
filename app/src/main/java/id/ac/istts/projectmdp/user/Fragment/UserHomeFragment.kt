@@ -1,5 +1,6 @@
 package id.ac.istts.projectmdp.user.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -27,6 +28,7 @@ import id.ac.istts.projectmdp.R
 import id.ac.istts.projectmdp.hospital.ListUserAdapter
 import id.ac.istts.projectmdp.user.Adapter.ListRequestAdapter
 import id.ac.istts.projectmdp.user.UserActivity
+import id.ac.istts.projectmdp.user.UserProfilePuskesmasActivity
 import org.json.JSONObject
 import java.net.URLEncoder
 import java.util.*
@@ -172,7 +174,7 @@ class UserHomeFragment : Fragment() {
                 return@setOnMarkerClickListener false
             }
             Connection.profileId = id
-            (requireActivity() as UserActivity).mViewPager.currentItem = 4
+            startActivity(Intent(requireContext(), UserProfilePuskesmasActivity::class.java))
             clickedId = -1
             return@setOnMarkerClickListener true
         }

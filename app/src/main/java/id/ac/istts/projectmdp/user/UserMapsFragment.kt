@@ -1,5 +1,6 @@
 package id.ac.istts.projectmdp.user
 
+import android.content.Intent
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
@@ -174,7 +175,7 @@ class UserMapsFragment : Fragment() {
                 return@setOnMarkerClickListener false
             }
             Connection.profileId = id
-            (requireActivity() as UserActivity).mViewPager.currentItem = 4
+            startActivity(Intent(requireContext(), UserProfilePuskesmasActivity::class.java))
             clickedId = -1
             return@setOnMarkerClickListener true
         }
