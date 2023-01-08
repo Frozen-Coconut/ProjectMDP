@@ -39,7 +39,7 @@ class PuskesmasHomeFragment : Fragment() {
         btnSubmit = view.findViewById(R.id.puskesmas_home_btnSubmit)
         txtScheduledDate = view.findViewById(R.id.puskesmas_home_txtScheduledDate)
         txtBloodType = view.findViewById(R.id.puskesmas_home_txtBloodType)
-        rvUser = view.findViewById(R.id.puskesmas_home_rvUser)
+        rvUser = view.findViewById(R.id.rvUserHome)
         
         val requestQueue = Volley.newRequestQueue(requireContext())
 

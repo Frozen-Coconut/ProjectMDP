@@ -22,4 +22,8 @@ class BloodRequest extends Model
     public function puskesmas() {
         return $this->belongsTo(User::class, 'puskesmas_id', 'id');
     }
+
+    public function user_accept() {
+        return $this->hasMany(BloodRequestUser::class, 'blood_request_id', 'id');
+    }
 }

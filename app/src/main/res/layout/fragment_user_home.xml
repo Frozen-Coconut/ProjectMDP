@@ -1,29 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".user.Fragment.UserHomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="131dp"
-        android:layout_margin="20dp"
+        android:layout_width="377dp"
+        android:layout_height="287dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         map:cameraTargetLat="-7.291290184677537"
         map:cameraTargetLng="112.75882726352205"
         map:cameraZoom="15"
+        map:layout_constraintBottom_toTopOf="@+id/tvDaftarTugasUserHome"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toTopOf="parent"
         map:uiRotateGestures="true"
         map:uiScrollGestures="true"
-        map:uiZoomGestures="true"
-        map:uiZoomControls="true" />
+        map:uiZoomControls="true"
+        map:uiZoomGestures="true" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tvDaftarTugasUserHome"
+        android:layout_width="377dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="18dp"
+        android:text="Daftar Request"
+        android:textSize="24sp"
+        map:layout_constraintBottom_toTopOf="@+id/rvUserHome"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toBottomOf="@+id/mapFragment" />
 
-</FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUserHome"
+        android:layout_width="382dp"
+        android:layout_height="344dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="22dp"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toBottomOf="@+id/tvDaftarTugasUserHome" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,4 +25,8 @@ class User extends Model
     public function blood_requests() {
         return $this->hasMany(BloodRequest::class, 'puskesmas_id', 'id');
     }
+
+    public function accept() {
+        return $this->hasMany(BloodRequestUser::class, 'user_id', 'id');
+    }
 }

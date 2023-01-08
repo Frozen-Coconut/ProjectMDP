@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\BloodRequestController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\BloodRequestUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,11 @@ Route::prefix('bloodrequests')->group(function () {
     Route::post('delete', [BloodRequestController::class, 'Delete']);
     Route::get('get', [BloodRequestController::class, 'Get']);
     Route::get('/', [BloodRequestController::class, 'GetAll']);
+    Route::get('/getBeforeDeadline', [BloodRequestController::class, 'GetAllBeforeDeadline']);
+});
+
+Route::prefix('bloodrequestsusers')->group(function() {
+    Route::post('insert', [BloodRequestUserController::class, 'Insert']);
+    Route::post('update', [BloodRequestUserController::class, 'Update']);
+    Route::post('delete', [BloodRequestUserController::class, 'Delete']);
 });
