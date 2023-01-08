@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:paddingVertical="30dp"
     tools:context=".hospital.PuskesmasHomeFragment">
 
     <TextView
@@ -17,6 +19,7 @@
         android:id="@+id/puskesmas_home_txtScheduledDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Tanggal Dibutuhkan"
         android:inputType="date"
@@ -26,6 +29,7 @@
         android:id="@+id/puskesmas_home_txtBloodType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Golongan Darah"
         android:inputType="textPersonName"
@@ -35,17 +39,20 @@
         android:id="@+id/puskesmas_home_btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Submit" />
 
     <TextView
         android:id="@+id/puskesmas_home_txtTitle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="Daftar User"
         android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUserHome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
 </LinearLayout>
