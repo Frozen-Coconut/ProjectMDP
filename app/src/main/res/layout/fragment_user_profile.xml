@@ -8,80 +8,16 @@
     tools:context=".user.Fragment.UserProfileFragment" >
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="367dp"
-        android:layout_height="85dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="393dp">
-
-        <TextView
-            android:id="@+id/tvTglLahirProfileUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tanggal Lahir"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/tpTanggalLahirProfileUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/custom_date_icon"
-            android:ems="10"
-            android:hint=" Tanggal Lahir (YYYY-MM-DD)"
-            android:inputType="datetime"
-            android:minHeight="48dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="18dp"
-            android:visibility="visible" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="367dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="21dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <TextView
-            android:id="@+id/tvAlamatProfileUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Alamat"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/tpAlamatProfileUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Alamat User"
-            android:inputType="textPersonName" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="369dp"
         android:layout_height="69dp"
-        android:layout_marginBottom="74dp"
-        android:orientation="horizontal"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="73dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutTanggalLahirPRofile">
 
         <Button
             android:id="@+id/btnEdit2"
@@ -96,10 +32,11 @@
         android:id="@+id/linearLayout2"
         android:layout_width="367dp"
         android:layout_height="85dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutAlamatUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -125,14 +62,13 @@
         android:id="@+id/linearLayout3"
         android:layout_width="367dp"
         android:layout_height="85dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAlamatUser">
 
         <TextView
             android:id="@+id/tvEmailProfileUser"
@@ -149,6 +85,75 @@
             android:enabled="false"
             android:hint="Email User"
             android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAlamatUser"
+        android:layout_width="366dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="34dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/tvAlamatProfileUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/tpAlamatProfileUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Alamat User"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutTanggalLahirPRofile"
+        android:layout_width="366dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="105dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/tvTglLahirProfileUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Lahir"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/tpTanggalLahirProfileUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_date_icon"
+            android:ems="10"
+            android:hint=" Tanggal Lahir (YYYY-MM-DD)"
+            android:inputType="datetime"
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp"
+            android:visibility="visible" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
