@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
@@ -22,6 +24,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 import id.ac.istts.projectmdp.Connection
 import id.ac.istts.projectmdp.Position
 import id.ac.istts.projectmdp.R
+import id.ac.istts.projectmdp.hospital.ListUserAdapter
+import id.ac.istts.projectmdp.user.Adapter.ListRequestAdapter
 import id.ac.istts.projectmdp.user.UserActivity
 import org.json.JSONObject
 import java.net.URLEncoder
@@ -31,6 +35,8 @@ import kotlin.collections.HashMap
 import kotlin.math.abs
 
 class UserHomeFragment : Fragment() {
+    lateinit var rvRequest: RecyclerView
+
     private var clickedId = -1
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -185,6 +191,26 @@ class UserHomeFragment : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
 
-        // ...
+        rvRequest = view.findViewById(R.id.rvUserHome)
+
+        val requestQueue = Volley.newRequestQueue(requireContext())
+
+        rvRequest.layoutManager = LinearLayoutManager(requireContext())
+
+        val url = Connection.URL + "bloodrequests/getBeforeDeadline"
+        val request = JsonArrayRequest(
+            Request.Method.GET,
+            url,
+            null,
+            { response ->
+                rvRequest.adapter = ListRequestAdapter(response, requireContext())
+                Log.d("Laravel", response.toString())
+            },
+            { error ->
+                Toast.makeText(requireContext(), "Gagal mendapatkan daftar permintaan darah!", Toast.LENGTH_SHORT).show()
+                Log.e("Laravel", error.toString())
+            }
+        )
+        requestQueue.add(request)
     }
 }

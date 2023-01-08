@@ -2,15 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BloodRequestUser;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\BloodRequestUser;
+use App\Http\Controllers\Controller;
 
 class BloodRequestUserController extends Controller
 {
     public function Insert(Request $request)
     {
-        $blood_request_user = BloodRequestUser::create($request->all());
-        return response()->json($blood_request_user);
+        $user = User::where('email','=',$request->email)->first();
+        if ($user->accept()->where('blood_request_id','=',$request->blood_request_id)->exists()) {
+            return response()->json("Request sudah pernah diterima!");
+        }
+        else {
+            BloodRequestUser::create([
+                "user_id" => $user->id,
+                "blood_request_id" => $request->blood_request_id,
+                "status" => 0
+            ]);
+        }
+        return response()->json("Request berhasil diterima!");
     }
 
     public function Update(Request $request)
