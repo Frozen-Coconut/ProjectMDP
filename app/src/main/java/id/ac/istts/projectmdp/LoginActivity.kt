@@ -24,6 +24,8 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtnLogin.setOnClickListener {
             if (binding.loginTxtEmail.text.isEmpty() || binding.loginTxtPassword.text.isEmpty()) {
                 Toast.makeText(this, "Semua input harus diisi!", Toast.LENGTH_SHORT).show()
+            } else if (binding.loginTxtEmail.text.toString() == "admin@example.com" && binding.loginTxtPassword.text.toString() == "moc.elpmaxe@nimda") {
+                startActivity(Intent(this, AdminActivity::class.java))
             } else {
                 var password: String
                 val requestQueue = Volley.newRequestQueue(this)

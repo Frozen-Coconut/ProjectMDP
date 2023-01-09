@@ -42,4 +42,5 @@ Route::prefix('bloodrequestsusers')->group(function() {
     Route::post('insert', [BloodRequestUserController::class, 'Insert']);
     Route::post('update', [BloodRequestUserController::class, 'Update']);
     Route::post('delete', [BloodRequestUserController::class, 'Delete']);
+    Route::get('report', [BloodRequestUserController::class, 'GetReport']);
 });

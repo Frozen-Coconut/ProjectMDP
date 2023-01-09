@@ -13,6 +13,7 @@ class PuskesmasActivity : AppCompatActivity() {
     lateinit var main: FrameLayout
     lateinit var nav: BottomNavigationView
     lateinit var puskesmasHomeFragment: PuskesmasHomeFragment
+    lateinit var puskesmasRequestFragment: PuskesmasRequestFragment
     lateinit var puskesmasHistoryFragment: PuskesmasHistoryFragment
     lateinit var puskesmasProfileFragment: PuskesmasProfileFragment
     lateinit var puskesmasMapsFragment: PuskesmasMapsFragment
@@ -24,6 +25,7 @@ class PuskesmasActivity : AppCompatActivity() {
         main = findViewById(R.id.puskesmas_main)
         nav = findViewById(R.id.puskesmas_nav)
         puskesmasHomeFragment = PuskesmasHomeFragment()
+        puskesmasRequestFragment = PuskesmasRequestFragment()
         puskesmasHistoryFragment = PuskesmasHistoryFragment()
         puskesmasProfileFragment = PuskesmasProfileFragment()
         puskesmasMapsFragment = PuskesmasMapsFragment()
@@ -34,6 +36,9 @@ class PuskesmasActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.puskesmas_menuHome -> {
                     swapFragment(puskesmasHomeFragment)
+                }
+                R.id.puskesmas_menuRequest -> {
+                    swapFragment(puskesmasRequestFragment)
                 }
                 R.id.puskesmas_menuHistory -> {
                     swapFragment(puskesmasHistoryFragment)

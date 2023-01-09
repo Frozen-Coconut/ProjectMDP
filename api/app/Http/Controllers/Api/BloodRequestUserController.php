@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\BloodRequestUser;
 use App\Http\Controllers\Controller;
+use App\Models\BloodRequest;
+use Faker\Core\Blood;
 
 class BloodRequestUserController extends Controller
 {
@@ -47,5 +49,24 @@ class BloodRequestUserController extends Controller
     {
         $blood_request_user = BloodRequestUser::where('user_id', $request->id)->get();
         return response()->json($blood_request_user);
+    }
+
+    public function GetReport(Request $request)
+    {
+        $data = [];
+        $blood_requests = BloodRequest::where('puskesmas_id', $request->id)->get();
+        foreach ($blood_requests as $blood_request) {
+            foreach ($blood_request->user_accept()->where('status', 0)->get() as $blood_request_user) {
+                $instance = [
+                    'id' => $blood_request_user->id,
+                    'user_name' => $blood_request_user->user->name,
+                    'user_email' => $blood_request_user->user->email,
+                    'blood_type' => $blood_request->blood_type,
+                    'scheduled_date' => $blood_request->scheduled_date
+                ];
+                array_push($data, $instance);
+            }
+        }
+        return response()->json($data);
     }
 }
