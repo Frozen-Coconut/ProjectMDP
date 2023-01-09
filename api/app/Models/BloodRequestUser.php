@@ -2,16 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\BloodRequest;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BloodRequestUser extends Model
 {
     use HasFactory;
 
-    protected $table = 'blood_requests';
+    protected $table = 'blood_requests_users';
 
     public $timestamps = false;
+    public $incrementing = true;
 
     protected $fillable = [
         'user_id',

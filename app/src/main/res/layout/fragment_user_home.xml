@@ -12,8 +12,8 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="377dp"
-        android:layout_height="287dp"
+        android:layout_width="315dp"
+        android:layout_height="279dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -22,7 +22,7 @@
         map:cameraZoom="15"
         map:layout_constraintBottom_toTopOf="@+id/tvDaftarTugasUserHome"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintHorizontal_bias="0.403"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent"
         map:uiRotateGestures="true"
@@ -32,8 +32,8 @@
 
     <TextView
         android:id="@+id/tvDaftarTugasUserHome"
-        android:layout_width="377dp"
-        android:layout_height="32dp"
+        android:layout_width="273dp"
+        android:layout_height="38dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="18dp"
@@ -47,8 +47,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUserHome"
-        android:layout_width="382dp"
-        android:layout_height="344dp"
+        android:layout_width="350dp"
+        android:layout_height="224dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="13dp"
         android:layout_marginBottom="22dp"

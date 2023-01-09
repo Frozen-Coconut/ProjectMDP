@@ -41,6 +41,7 @@ class BloodRequestController extends Controller
 
     public function GetAllBeforeDeadline(Request $request) {
         $blood_request = DB::table('blood_requests')->join('users','blood_requests.puskesmas_id','=','users.id')
+        ->select('blood_requests.id AS id', 'blood_requests.blood_type AS blood_type', 'blood_requests.scheduled_date as scheduled_date', 'users.name AS name')
         ->where('scheduled_date', '>=', date_format(date_sub(date_create(date('Y-m-d')),date_interval_create_from_date_string("1 day")),'Y-m-d'))
         ->get();
         return response()->json($blood_request);

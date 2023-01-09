@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\BloodRequestUser;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BloodRequest extends Model
 {
@@ -12,6 +14,7 @@ class BloodRequest extends Model
     protected $table = 'blood_requests';
 
     public $timestamps = false;
+    public $incrementing = true;
 
     protected $fillable = [
         'blood_type',

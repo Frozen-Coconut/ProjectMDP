@@ -9,11 +9,11 @@
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="369dp"
+        android:layout_width="350dp"
         android:layout_height="69dp"
         android:layout_marginStart="19dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="130dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,10 +30,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="367dp"
+        android:layout_width="350dp"
         android:layout_height="85dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutAlamatUser"
@@ -60,12 +60,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="367dp"
+        android:layout_width="350dp"
         android:layout_height="85dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="34dp"
         android:layout_marginEnd="20dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutTanggalLahirPRofile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutAlamatUser">
@@ -90,12 +90,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutAlamatUser"
-        android:layout_width="366dp"
+        android:layout_width="350dp"
         android:layout_height="84dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="21dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,12 +120,12 @@
 
     <LinearLayout
         android:id="@+id/linearLayoutTanggalLahirPRofile"
-        android:layout_width="366dp"
+        android:layout_width="350dp"
         android:layout_height="92dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="21dp"
-        android:layout_marginBottom="105dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,17 +143,10 @@
             android:id="@+id/tpTanggalLahirProfileUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/custom_date_icon"
             android:ems="10"
-            android:hint=" Tanggal Lahir (YYYY-MM-DD)"
-            android:inputType="datetime"
-            android:minHeight="48dp"
-            android:paddingStart="12dp"
-            android:paddingEnd="18dp"
-            android:visibility="visible" />
+            android:enabled="false"
+            android:hint="Tanggal Lahir"
+            android:inputType="textPersonName" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

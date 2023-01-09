@@ -40,6 +40,7 @@ class ListRequestAdapter(
         holder.tvDeadline.text = "Tanggal : "+request.getString("scheduled_date")
         holder.tvPuskesmas.text = "Nama Pemohon : "+request.getString("name")
         holder.btnAccept.setOnClickListener {
+//            Toast.makeText(context, "Coba ${request.getString("id")}", Toast.LENGTH_SHORT).show()
             val requestQueue = Volley.newRequestQueue(context)
 
             val url = Connection.URL + "bloodrequestsusers/insert"
@@ -48,11 +49,13 @@ class ListRequestAdapter(
                 url,
                 object: Response.Listener<String> {
                     override fun onResponse(response: String) {
-                        Toast.makeText(context, response, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show()
                     }
                 },
                 object: Response.ErrorListener {
                     override fun onErrorResponse(error: VolleyError?) {
+                        Toast.makeText(context, "Gagal menerima !", Toast.LENGTH_SHORT).show()
+                        Log.e("Laravel", error.toString())
                     }
                 }
             ) {

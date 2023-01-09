@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class BloodRequestUserController extends Controller
     {
         $user = User::where('email','=',$request->email)->first();
         if ($user->accept()->where('blood_request_id','=',$request->blood_request_id)->exists()) {
-            return response()->json("Request sudah pernah diterima!");
+            return response("Request sudah pernah diterima!");
         }
         else {
             BloodRequestUser::create([
@@ -22,7 +22,7 @@ class BloodRequestUserController extends Controller
                 "status" => 0
             ]);
         }
-        return response()->json("Request berhasil diterima!");
+        return response("Request berhasil diterima!");
     }
 
     public function Update(Request $request)
