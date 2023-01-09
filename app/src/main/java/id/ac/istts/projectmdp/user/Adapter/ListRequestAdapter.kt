@@ -31,7 +31,7 @@ class ListRequestAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_list_user, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_list_request, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
