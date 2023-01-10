@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\BloodRequestController;
 use App\Http\Controllers\Api\BloodRequestUserController;
+use App\Http\Controllers\Api\NotificationController;
+use App\Models\BloodRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +45,13 @@ Route::prefix('bloodrequestsusers')->group(function() {
     Route::post('update', [BloodRequestUserController::class, 'Update']);
     Route::post('delete', [BloodRequestUserController::class, 'Delete']);
     Route::get('report', [BloodRequestUserController::class, 'GetReport']);
+    Route::get('history', [BloodRequestUserController::class, 'GetHistory']);
+});
+
+Route::prefix('notifications')->group(function() {
+    Route::post('insert', [NotificationController::class, 'Insert']);
+    Route::post('update', [NotificationController::class, 'Update']);
+    Route::post('delete', [NotificationController::class, 'Delete']);
+    Route::get('get', [NotificationController::class, 'Get']);
+    Route::get('/getAll', [NotificationController::class, 'GetAll']);
 });

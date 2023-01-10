@@ -40,7 +40,7 @@ class ListRequestPuskesmasAdapter(
         holder.txtRequestData.text = "Blood Type: ${request.getString("blood_type")}\nScheduled Date: ${request.getString("scheduled_date")}"
         holder.btnAccept.setOnClickListener {
             val requestQueue = Volley.newRequestQueue(context)
-            val url = Connection.URL + "bloodrequestsusers/update"
+            var url = Connection.URL + "bloodrequestsusers/update"
             val updateRequest = object: StringRequest(
                 Method.POST,
                 url,
@@ -66,10 +66,36 @@ class ListRequestPuskesmasAdapter(
                 }
             }
             requestQueue.add(updateRequest)
+
+            val urlInsert = Connection.URL + "notifications/insert"
+            val insertNotification = object: StringRequest(
+                Method.POST,
+                urlInsert,
+                object: Response.Listener<String> {
+                    override fun onResponse(response: String) {
+                        Log.d("Laravel", response)
+                    }
+                },
+                object: Response.ErrorListener {
+                    override fun onErrorResponse(error: VolleyError?) {
+                        Toast.makeText(context, "Gagal terhubung ke database!", Toast.LENGTH_SHORT).show()
+                        Log.e("Laravel", error.toString())
+                    }
+                }
+            ) {
+                override fun getParams(): MutableMap<String, String> {
+                    val params: MutableMap<String, String> = HashMap()
+                    params["email"] = request.getString("user_email")
+                    params["text"] = "Pengajuan darah dengan golongan darah ${request.getString("blood_type")} pada tanggal ${request.getString("scheduled_date")} diterima"
+                    params["status"] = "0"
+                    return params
+                }
+            }
+            requestQueue.add(insertNotification)
         }
         holder.btnReject.setOnClickListener {
             val requestQueue = Volley.newRequestQueue(context)
-            val url = Connection.URL + "bloodrequestsusers/update"
+            var url = Connection.URL + "bloodrequestsusers/update"
             val updateRequest = object: StringRequest(
                 Method.POST,
                 url,
@@ -95,6 +121,32 @@ class ListRequestPuskesmasAdapter(
                 }
             }
             requestQueue.add(updateRequest)
+
+            val urlInsert = Connection.URL + "notifications/insert"
+            val insertNotification = object: StringRequest(
+                Method.POST,
+                urlInsert,
+                object: Response.Listener<String> {
+                    override fun onResponse(response: String) {
+                        Log.d("Laravel", response)
+                    }
+                },
+                object: Response.ErrorListener {
+                    override fun onErrorResponse(error: VolleyError?) {
+                        Toast.makeText(context, "Gagal terhubung ke database!", Toast.LENGTH_SHORT).show()
+                        Log.e("Laravel", error.toString())
+                    }
+                }
+            ) {
+                override fun getParams(): MutableMap<String, String> {
+                    val params: MutableMap<String, String> = HashMap()
+                    params["user_id"] = request.getString("user_id")
+                    params["text"] = "Pengajuan darah dengan golongan darah ${request.getString("blood_type")} pada tanggal ${request.getString("scheduled_date")} ditolak"
+                    params["status"] = "0"
+                    return params
+                }
+            }
+            requestQueue.add(insertNotification)
         }
     }
 

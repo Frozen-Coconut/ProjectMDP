@@ -69,4 +69,20 @@ class BloodRequestUserController extends Controller
         }
         return response()->json($data);
     }
+
+    public function GetHistory(Request $request) {
+        $data = [];
+        $user = User::where('email',$request->email)->first();
+        foreach ($user->accept as $key => $value) {
+            $instance = [
+                "blood_type" => $value->blood_request->blood_type,
+                "scheduled_date" => $value->blood_request->scheduled_date,
+                "name" => $value->blood_request->puskesmas->name,
+                "status" => $value->status
+            ];
+            array_push($data, $instance);
+        }
+
+        return response()->json($data);
+    }
 }
