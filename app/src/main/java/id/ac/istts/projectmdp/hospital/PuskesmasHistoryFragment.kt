@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import id.ac.istts.projectmdp.R
 
 class PuskesmasHistoryFragment : Fragment() {
+    lateinit var RvHistory: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -17,7 +19,9 @@ class PuskesmasHistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        RvHistory = view.findViewById(R.id.RvPuskesmasHistory)
+        
+        //RvHistory.adapter = ListPuskesmasHistoryAdapter()
 
     }
 }
