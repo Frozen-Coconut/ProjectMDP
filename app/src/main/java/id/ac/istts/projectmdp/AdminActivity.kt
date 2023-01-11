@@ -11,18 +11,28 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class AdminActivity : AppCompatActivity() {
     lateinit var main: FrameLayout
     lateinit var nav: BottomNavigationView
+    lateinit var adminPuskesmasFragment:AdminPuskesmasFragment
+    lateinit var adminUserFragment: AdminUserFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
 
-        main = findViewById(R.id.puskesmas_main)
-        nav = findViewById(R.id.puskesmas_nav)
+        main = findViewById(R.id.admin_main_frame)
+        nav = findViewById(R.id.admin_nav)
+
+        adminPuskesmasFragment = AdminPuskesmasFragment()
+        adminUserFragment = AdminUserFragment()
+
+        swapFragment(adminUserFragment)
 
         nav.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.admin_menuHome -> {
-                    // TODO: Buat fragment trs nti swapFragment(variabel_fragment_yang_dibuat)
+                R.id.admin_menuUser -> {
+                    swapFragment(adminUserFragment)
+                }
+                R.id.admin_menuPuskesmas -> {
+                    swapFragment(adminPuskesmasFragment)
                 }
             }
             return@setOnItemSelectedListener true
@@ -44,6 +54,6 @@ class AdminActivity : AppCompatActivity() {
     }
 
     fun swapFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.puskesmas_main, fragment).setReorderingAllowed(true).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.admin_main_frame, fragment).setReorderingAllowed(true).commit()
     }
 }

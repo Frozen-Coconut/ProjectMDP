@@ -58,4 +58,27 @@ class UserController extends Controller
         $users = User::all();
         return response()->json($users);
     }
+
+    public function BanUser(Request $request) {
+
+        $status = $request->status == "1" ? 1 : 0;
+
+        $user = User::where('email', $request->email)->update([
+            "status" => $status
+        ]);
+
+        return response()->json($user);
+    }
+
+    public function GetUsers(Request $request) {
+        $users = User::whereNotNull('date_of_birth')->get();
+
+        return response()->json($users);
+    }
+
+    public function GetPuskesmas(Request $request) {
+        $users = User::whereNotNull('phone')->get();
+
+        return response()->json($users);
+    }
 }

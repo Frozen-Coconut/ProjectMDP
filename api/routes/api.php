@@ -28,6 +28,9 @@ Route::prefix('users')->group(function () {
     Route::post('update', [UserController::class, 'Update']);
     Route::post('delete', [UserController::class, 'Delete']);
     Route::get('get', [UserController::class, 'Get']);
+    Route::get('get-users', [UserController::class, 'GetUsers']);
+    Route::get('get-puskesmas', [UserController::class, 'GetPuskesmas']);
+    Route::post('ban', [UserController::class, 'BanUser']);
     Route::get('/', [UserController::class, 'GetAll']);
 });
 

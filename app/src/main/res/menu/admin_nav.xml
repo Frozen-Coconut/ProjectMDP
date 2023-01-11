@@ -2,7 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/admin_menuHome"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home" />
+        android:id="@+id/admin_menuUser"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="User" />
+    <item
+        android:id="@+id/admin_menuPuskesmas"
+        android:icon="@drawable/ic_baseline_add_home_work_24"
+        android:title="Puskesmas" />
 </menu>
