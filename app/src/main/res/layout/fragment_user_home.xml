@@ -35,13 +35,12 @@
         android:layout_width="273dp"
         android:layout_height="38dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginBottom="18dp"
         android:text="Daftar Request"
         android:textSize="24sp"
-        map:layout_constraintBottom_toTopOf="@+id/rvUserHome"
         map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.259"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toBottomOf="@+id/mapFragment" />
 
@@ -54,7 +53,9 @@
         android:layout_marginBottom="22dp"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.437"
         map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toBottomOf="@+id/tvDaftarTugasUserHome" />
+        map:layout_constraintTop_toBottomOf="@+id/tvDaftarTugasUserHome"
+        map:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
