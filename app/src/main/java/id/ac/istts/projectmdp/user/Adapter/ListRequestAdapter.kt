@@ -1,5 +1,6 @@
 package id.ac.istts.projectmdp.user.Adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -34,11 +35,11 @@ class ListRequestAdapter(
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_list_request, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val request = (requests[position] as JSONObject)
         holder.tvGolDarah.text = "Golongan Darah : "+request.getString("blood_type")
         holder.tvDeadline.text = "Tanggal : "+request.getString("scheduled_date")
-        holder.tvPuskesmas.text = "Nama Pemohon : "+request.getString("name")
+        holder.tvPuskesmas.text = request.getString("name")
         holder.btnAccept.setOnClickListener {
 //            Toast.makeText(context, "Coba ${request.getString("id")}", Toast.LENGTH_SHORT).show()
             val requestQueue = Volley.newRequestQueue(context)
