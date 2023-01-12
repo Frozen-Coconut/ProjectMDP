@@ -199,7 +199,7 @@ class UserHomeFragment : Fragment() {
 
         rvRequest.layoutManager = LinearLayoutManager(requireContext())
 
-        val url = Connection.URL + "bloodrequests/getBeforeDeadline"
+        val url = Connection.URL + "bloodrequests/getBeforeDeadline?email=${Connection.email}"
         val request = JsonArrayRequest(
             Request.Method.GET,
             url,

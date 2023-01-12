@@ -50,6 +50,9 @@ class ListRequestAdapter(
                 object: Response.Listener<String> {
                     override fun onResponse(response: String) {
                         Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show()
+
+                        requests.remove(position)
+                        this@ListRequestAdapter.notifyDataSetChanged()
                     }
                 },
                 object: Response.ErrorListener {
