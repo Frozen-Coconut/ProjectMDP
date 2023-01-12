@@ -51,7 +51,7 @@ class ListPuskesmasAdminAdapter(
                 url,
                 object: Response.Listener<String> {
                     override fun onResponse(response: String) {
-                        Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show()
 
                         this@ListPuskesmasAdminAdapter.updateUsers(position,statusBanKirim)
                         this@ListPuskesmasAdminAdapter.notifyDataSetChanged()

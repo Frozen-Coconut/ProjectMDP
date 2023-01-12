@@ -54,6 +54,9 @@ class ListUserAdminAdapter(
                 object: Response.Listener<String> {
                     override fun onResponse(response: String) {
 //                        Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show()
+
+                        this@ListUserAdminAdapter.updateUsers(position,statusBanKirim)
+                        this@ListUserAdminAdapter.notifyDataSetChanged()
                     }
                 },
                 object: Response.ErrorListener {
@@ -72,6 +75,26 @@ class ListUserAdminAdapter(
             }
             requestQueue.add(request)
         }
+    }
+
+    fun updateUsers(index:Int, statusBaru:Int) {
+        var newUsers = JSONArray()
+        for (i in 0 until this.itemCount) {
+            if (i == index) {
+                var userSekarang = users[i] as JSONObject
+                var newUser = JSONObject()
+                newUser.put("email", userSekarang.get("email"))
+                newUser.put("name", userSekarang.get("name"))
+                newUser.put("address", userSekarang.get("address"))
+                newUser.put("phone", userSekarang.get("phone"))
+                newUser.put("status", statusBaru.toString())
+                newUsers.put(newUser)
+            }
+            else {
+                newUsers.put(users[i] as JSONObject)
+            }
+        }
+        users = newUsers
     }
 
     override fun getItemCount(): Int {
