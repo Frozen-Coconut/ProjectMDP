@@ -19,27 +19,36 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 class ListPuskesmasHistoryAdapter(
-    private var requests: JSONArray,
+    private var historys: JSONArray,
     private var context: Context
 ): RecyclerView.Adapter<ListPuskesmasHistoryAdapter.ViewHolder>() {
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val txtUserData: TextView = view.findViewById(R.id.txtUserData)
-        val txtRequestData: TextView = view.findViewById(R.id.txtRequestData)
+        val tvGolDarah:TextView = view.findViewById(R.id.tvGolonganDarahHistoryPuskesmas)
+        val tvTanggal:TextView = view.findViewById(R.id.tvTanggalHistoryPuskesmas)
+        val tvStatus:TextView = view.findViewById(R.id.tvStatusHistoryPuskesmas)
+        val tvNama:TextView = view.findViewById(R.id.tvNamaHistoryPuskesmas)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_puskesmas_list_request, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_list_history_puskesmas, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pos = position
-        val request = (requests[position] as JSONObject)
-        holder.txtUserData.text = "${request.getString("user_name")} (${request.getString("user_email")})"
-        holder.txtRequestData.text = "Blood Type: ${request.getString("blood_type")}\nScheduled Date: ${request.getString("scheduled_date")}"
+        val history = (historys[position] as JSONObject)
 
+        holder.tvGolDarah.text = "Golongan Darah : "+history.getString("blood_type")
+        holder.tvTanggal.text = "Tanggal : "+history.getString("scheduled_date")
+        holder.tvNama.text = "Nama Pendonor : "+history.getString("name")
+
+        var status = "Menunggu"
+        if (history.getString("status") == "1") status = "Diterima"
+        if (history.getString("status") == "2") status = "Ditolak"
+
+        holder.tvStatus.text = "Status : $status"
     }
 
     override fun getItemCount(): Int {
-        return requests.length()
+        return historys.length()
     }
 }

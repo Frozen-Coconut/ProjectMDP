@@ -85,4 +85,22 @@ class BloodRequestUserController extends Controller
 
         return response()->json($data);
     }
+
+    public function GetHistoryPuskesmas(Request $request) {
+        $data = [];
+        $user = User::where('email', $request->email)->first();
+        foreach ($user->blood_requests as $blood_request) {
+            foreach ($blood_request->user_accept as $user_accept) {
+                $instance = [
+                    "blood_type" => $blood_request->blood_type,
+                    "scheduled_date" => $blood_request->scheduled_date,
+                    "name" => $user_accept->user->name,
+                    "status" => $user_accept->status
+                ];
+                array_push($data, $instance);
+            }
+        }
+
+        return response()->json($data);
+    }
 }

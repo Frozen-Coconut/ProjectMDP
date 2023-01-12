@@ -49,6 +49,7 @@ Route::prefix('bloodrequestsusers')->group(function() {
     Route::post('delete', [BloodRequestUserController::class, 'Delete']);
     Route::get('report', [BloodRequestUserController::class, 'GetReport']);
     Route::get('history', [BloodRequestUserController::class, 'GetHistory']);
+    Route::get('historyPuskesmas', [BloodRequestUserController::class, 'GetHistoryPuskesmas']);
 });
 
 Route::prefix('notifications')->group(function() {
