@@ -1,52 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="30dp"
-    android:paddingVertical="30dp"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="20dp"
     tools:context=".hospital.PuskesmasHomeFragment">
 
-    <TextView
-        android:id="@+id/puskesmas_home_txtTitle1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Request Darah"
-        android:textSize="24sp" />
+        android:orientation="vertical"
+        android:padding="6dp">
 
-    <EditText
-        android:id="@+id/puskesmas_home_txtScheduledDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Tanggal Dibutuhkan"
-        android:inputType="date"
-        android:minHeight="48dp" />
+        <TextView
+            android:id="@+id/puskesmas_home_txtTitle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request Darah"
+            android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/puskesmas_home_txtBloodType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Golongan Darah"
-        android:inputType="textPersonName"
-        android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/puskesmas_home_txtScheduledDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Tanggal Dibutuhkan"
+            android:inputType="date"
+            android:minHeight="48dp" />
 
-    <Button
-        android:id="@+id/puskesmas_home_btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Submit" />
+        <EditText
+            android:id="@+id/puskesmas_home_txtBloodType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Golongan Darah"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/puskesmas_home_btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Submit" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/puskesmas_home_txtTitle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:text="Daftar User"
         android:textSize="24sp" />
 
@@ -55,4 +62,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp" />
+
 </LinearLayout>
