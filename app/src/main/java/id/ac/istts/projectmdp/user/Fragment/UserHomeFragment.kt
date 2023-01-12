@@ -197,7 +197,7 @@ class UserHomeFragment : Fragment() {
 
         val requestQueue = Volley.newRequestQueue(requireContext())
 
-        rvRequest.layoutManager = LinearLayoutManager(requireContext())
+        rvRequest.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
 
         val url = Connection.URL + "bloodrequests/getBeforeDeadline?email=${Connection.email}"
         val request = JsonArrayRequest(
