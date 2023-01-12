@@ -33,7 +33,7 @@ class PuskesmasHistoryFragment : Fragment() {
 
         RvHistory.layoutManager = LinearLayoutManager(requireContext())
 
-        val url = Connection.URL + "bloodrequestsusers/history?email=${Connection.email}"
+        val url = Connection.URL + "bloodrequestsusers/historyPuskesmas?email=${Connection.email}"
         val request = JsonArrayRequest(
             Request.Method.GET,
             url,
