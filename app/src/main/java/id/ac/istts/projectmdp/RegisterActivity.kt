@@ -95,6 +95,7 @@ class RegisterActivity : AppCompatActivity() {
                                     params["latitude"] = position?.latitude.toString()
                                     params["longitude"] = position?.longitude.toString()
                                 }
+                                params["status"] = "0"
                                 return params
                             }
                         }

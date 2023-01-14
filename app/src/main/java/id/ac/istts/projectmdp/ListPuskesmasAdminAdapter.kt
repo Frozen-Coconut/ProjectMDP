@@ -1,5 +1,6 @@
 package id.ac.istts.projectmdp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -32,6 +33,7 @@ class ListPuskesmasAdminAdapter(
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_admin, parent, false))
     }
 
+    @SuppressLint("RecyclerView")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = (users[position] as JSONObject)
         holder.tvEmail.text = user.getString("email")
@@ -39,6 +41,7 @@ class ListPuskesmasAdminAdapter(
         holder.tvAlamat.text = user.getString("address")
         holder.tvNomorTelp.text = user.getString("phone")
         if(user.getString("status") == "1") holder.btnBan.text = "Unban"
+        else holder.btnBan.text = "Ban"
         holder.btnBan.setOnClickListener {
             var statusBanKirim = 0
             if (holder.btnBan.text != "Unban") statusBanKirim = 1

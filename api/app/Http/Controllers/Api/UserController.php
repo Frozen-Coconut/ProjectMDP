@@ -37,9 +37,9 @@ class UserController extends Controller
     public function Get(Request $request)
     {
 	if ($request->has('id')) {
-            $user = User::where('id', $request->id)->first();
+            $user = User::where('id', $request->id)->where('status', 0)->first();
         } else {
-            $user = User::where('email', $request->email)->first();
+            $user = User::where('email', $request->email)->where('status',0)->first();
         }
         return response()->json($user);
     }

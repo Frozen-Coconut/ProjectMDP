@@ -1,5 +1,6 @@
 package id.ac.istts.projectmdp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -32,6 +33,7 @@ class ListUserAdminAdapter(
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_admin, parent, false))
     }
 
+    @SuppressLint("RecyclerView")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = (users[position] as JSONObject)
         holder.tvEmail.text = user.getString("email")
@@ -39,6 +41,7 @@ class ListUserAdminAdapter(
         holder.tvAlamat.text = user.getString("address")
         holder.tvTanggalLahir.text = user.getString("date_of_birth")
         if(user.getString("status") == "1") holder.btnBan.text = "Unban"
+        else holder.btnBan.text = "Ban"
         holder.btnBan.setOnClickListener {
             var statusBanKirim = 0
             if (holder.btnBan.text == "Ban") statusBanKirim = 1
@@ -86,7 +89,7 @@ class ListUserAdminAdapter(
                 newUser.put("email", userSekarang.get("email"))
                 newUser.put("name", userSekarang.get("name"))
                 newUser.put("address", userSekarang.get("address"))
-                newUser.put("phone", userSekarang.get("phone"))
+                newUser.put("date_of_birth", userSekarang.get("date_of_birth"))
                 newUser.put("status", statusBaru.toString())
                 newUsers.put(newUser)
             }

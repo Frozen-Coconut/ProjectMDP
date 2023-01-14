@@ -70,35 +70,39 @@ class UserProfileFragment : Fragment() {
 
         btnEdit.setOnClickListener {
             if (edit) {
-                edit = false
-                val updateUrl = Connection.URL + "users/update?email=${Connection.email}"
-                val updateRequest = object: StringRequest(
-                    Method.POST,
-                    updateUrl,
-                    { response ->
-                        try {
-                            Log.d("Laravel", response.toString())
-                        } catch (ex: Exception) {
-                            Toast.makeText(context, "Request Error!", Toast.LENGTH_SHORT).show()
-                            Log.e("Laravel", ex.message.toString())
+                if (tpNama.text.isBlank() || tpAlamat.text.isBlank() || tpTglLahir.text.isBlank()) {
+                    Toast.makeText(context, "Semua input harus diisi!", Toast.LENGTH_SHORT).show()
+                } else {
+                    edit = false
+                    val updateUrl = Connection.URL + "users/update?email=${Connection.email}"
+                    val updateRequest = object: StringRequest(
+                        Method.POST,
+                        updateUrl,
+                        { response ->
+                            try {
+                                Log.d("Laravel", response.toString())
+                            } catch (ex: Exception) {
+                                Toast.makeText(context, "Request Error!", Toast.LENGTH_SHORT).show()
+                                Log.e("Laravel", ex.message.toString())
+                            }
+                        },
+                        { error ->
+                            Toast.makeText(context, "Gagal update!", Toast.LENGTH_SHORT).show()
+                            Log.e("Laravel", error.toString())
                         }
-                    },
-                    { error ->
-                        Toast.makeText(context, "Gagal update!", Toast.LENGTH_SHORT).show()
-                        Log.e("Laravel", error.toString())
+                    ){
+                        override fun getParams(): Map<String, String> {
+                            val params = HashMap<String, String>()
+                            params["name"] = tpNama.text.toString()
+                            params["address"] = tpAlamat.text.toString()
+                            params["date_of_birth"] = tpTglLahir.text.toString()
+                            return params
+                        }
                     }
-                ){
-                    override fun getParams(): Map<String, String> {
-                        val params = HashMap<String, String>()
-                        params["name"] = tpNama.text.toString()
-                        params["address"] = tpAlamat.text.toString()
-                        params["date_of_birth"] = tpTglLahir.text.toString()
-                        return params
-                    }
-                }
-                requestQueue.add(updateRequest)
+                    requestQueue.add(updateRequest)
 
-                setOnEdit()
+                    setOnEdit()
+                }
             }
             else {
                 edit = true
@@ -114,14 +118,12 @@ class UserProfileFragment : Fragment() {
             tpNama.isEnabled = true
             tpAlamat.isEnabled = true
             tpTglLahir.isEnabled = true
-            tpEmail.isEnabled = true
         }
         else {
             btnEdit.text = "Edit"
             tpNama.isEnabled = false
             tpAlamat.isEnabled = false
             tpTglLahir.isEnabled = false
-            tpEmail.isEnabled = false
         }
     }
 }

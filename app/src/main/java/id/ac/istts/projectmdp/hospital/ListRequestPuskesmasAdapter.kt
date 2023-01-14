@@ -140,7 +140,7 @@ class ListRequestPuskesmasAdapter(
             ) {
                 override fun getParams(): MutableMap<String, String> {
                     val params: MutableMap<String, String> = HashMap()
-                    params["user_id"] = request.getString("user_id")
+                    params["email"] = request.getString("user_email")
                     params["text"] = "Pengajuan darah dengan golongan darah ${request.getString("blood_type")} pada tanggal ${request.getString("scheduled_date")} ditolak"
                     params["status"] = "0"
                     return params
