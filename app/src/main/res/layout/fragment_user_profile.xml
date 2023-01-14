@@ -5,11 +5,11 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.Fragment.UserProfileFragment" >
+    tools:context=".user.Fragment.UserProfileFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="69dp"
         android:layout_marginStart="19dp"
         android:layout_marginEnd="23dp"
@@ -30,7 +30,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="85dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
@@ -52,15 +52,23 @@
             android:id="@+id/tpNamaProfileUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_person_icon"
             android:ems="10"
-            android:hint="Nama User"
-            android:inputType="textPersonName" />
+            android:enabled="false"
+            android:hint=" Nama"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="85dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="20dp"
@@ -81,16 +89,23 @@
             android:id="@+id/tpEmailProfileUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_email_icon"
             android:ems="10"
             android:enabled="false"
-            android:hint="Email User"
-            android:inputType="textPersonName" />
+            android:hint=" Email"
+            android:inputType="textWebEmailAddress"
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutAlamatUser"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="84dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
@@ -113,14 +128,23 @@
             android:id="@+id/tpAlamatProfileUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_address_icon"
             android:ems="10"
-            android:hint="Alamat User"
-            android:inputType="textPersonName" />
+            android:enabled="false"
+            android:hint=" Alamat"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutTanggalLahirPRofile"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="92dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
@@ -143,10 +167,18 @@
             android:id="@+id/tpTanggalLahirProfileUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/custom_date_icon"
             android:ems="10"
             android:enabled="false"
-            android:hint="Tanggal Lahir"
-            android:inputType="textPersonName" />
+            android:hint=" Tanggal Lahir (YYYY-MM-DD)"
+            android:inputType="datetime"
+            android:minHeight="48dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="18dp"
+            android:visibility="visible" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

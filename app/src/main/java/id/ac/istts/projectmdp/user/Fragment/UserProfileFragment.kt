@@ -110,12 +110,14 @@ class UserProfileFragment : Fragment() {
 
     fun setOnEdit() {
         if (edit) {
+            btnEdit.text = "Save"
             tpNama.isEnabled = true
             tpAlamat.isEnabled = true
             tpTglLahir.isEnabled = true
             tpEmail.isEnabled = true
         }
         else {
+            btnEdit.text = "Edit"
             tpNama.isEnabled = false
             tpAlamat.isEnabled = false
             tpTglLahir.isEnabled = false

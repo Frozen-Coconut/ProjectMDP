@@ -9,14 +9,47 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAdminUser"
-        android:layout_width="350dp"
-        android:layout_height="672dp"
+        android:layout_width="345dp"
+        android:layout_height="508dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="29dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="345dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/rvAdminUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/tpSearchAdminUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:ems="10"
+            android:hint="Cari berdasarkan nama"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btnSearchAdminUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Cari" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +19,8 @@ import id.ac.istts.projectmdp.user.Adapter.ListRequestAdapter
 class AdminUserFragment : Fragment() {
 
     lateinit var rvUser: RecyclerView
+    lateinit var tpSearch: EditText
+    lateinit var btnSearch: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,12 +34,22 @@ class AdminUserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         rvUser = view.findViewById(R.id.rvAdminUser)
+        tpSearch = view.findViewById(R.id.tpSearchAdminUser)
+        btnSearch = view.findViewById(R.id.btnSearchAdminUser)
 
+        search()
+
+        btnSearch.setOnClickListener {
+            search()
+        }
+    }
+
+    fun search() {
         val requestQueue = Volley.newRequestQueue(requireContext())
 
         rvUser.layoutManager = LinearLayoutManager(requireContext())
 
-        val url = Connection.URL + "users/get-users"
+        val url = Connection.URL + "users/get-users?name=${tpSearch.text}"
         val request = JsonArrayRequest(
             Request.Method.GET,
             url,

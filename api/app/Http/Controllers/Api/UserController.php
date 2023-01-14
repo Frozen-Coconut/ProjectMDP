@@ -71,13 +71,13 @@ class UserController extends Controller
     }
 
     public function GetUsers(Request $request) {
-        $users = User::whereNotNull('date_of_birth')->get();
+        $users = User::whereNotNull('date_of_birth')->where('name','LIKE','%'.$request->name.'%')->get();
 
         return response()->json($users);
     }
 
     public function GetPuskesmas(Request $request) {
-        $users = User::whereNotNull('phone')->get();
+        $users = User::whereNotNull('phone')->where('name','LIKE','%'.$request->name.'%')->get();
 
         return response()->json($users);
     }
